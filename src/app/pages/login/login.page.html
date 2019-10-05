@@ -6,9 +6,6 @@
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
       <h4 no-margin>
-        <ion-text color="light" class="fw700">
-          Ionic 4 Start Theme
-        </ion-text>
       </h4>
     </div>
 
@@ -19,10 +16,17 @@
           <ion-icon name="mail" item-start></ion-icon>
           Email
         </ion-label>
-        <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+        <ion-input color="secondary" type="email"ng-model="someModelIamUsing"
+        pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" formControlName="email"></ion-input>
       </ion-item>
+      <p ion-text class="danger" *ngIf="onLoginForm.get('email').errors && onLoginForm.get('email').dirty">
+        <ion-text color= "danger">
+            Email is not valid!
+        </ion-text>
+      </p>
+
       <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
-        <ion-text color="warning">
+        <ion-text color="danger">
           Required Field
         </ion-text>
       </p>
@@ -34,15 +38,15 @@
         </ion-label>
         <ion-input color="secondary" type="password" formControlName="password"></ion-input>
       </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
-        <ion-text color="warning">
+      <p ion-text color="danger" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+        <ion-text color="danger">
           Required Field
         </ion-text>
         </p>
     </form>
 
     <p text-right tappable (click)="forgotPass()" class="paz">
-      <ion-text color="light">
+      <ion-text color="dark">
         <strong>Forgot Pass?</strong>
       </ion-text>
     </p>
@@ -54,7 +58,7 @@
       </ion-button>
 
       <p text-center>
-        <ion-text color="light">
+        <ion-text color="dark">
           Or Signin with:
         </ion-text>
       </p>
@@ -63,7 +67,7 @@
     <!-- Other links -->
     <div text-center margin-top>
       <span (click)="goToRegister()" class="paz" tappable>
-        <ion-text color="light">
+        <ion-text color="dark">
           New here? <strong>Sign Up</strong>
         </ion-text>
       </span>
