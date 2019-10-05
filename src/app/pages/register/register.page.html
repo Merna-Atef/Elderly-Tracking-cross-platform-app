@@ -6,7 +6,7 @@
       <div class="logo"></div>
       <h3 no-margin>
         <ion-text color="light" class="fw700">
-          <ion-text color="secondary">Register</ion-text>
+          <ion-text color="dark">Register</ion-text>
         </ion-text>
       </h3>
     </div>
@@ -21,7 +21,7 @@
         <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
       </ion-item>
       <p ion-text class="text08" *ngIf="onRegisterForm.get('fullName').touched && onRegisterForm.get('fullName').hasError('required')">
-        <ion-text color="warning">
+        <ion-text color="danger">
           This field is required
         </ion-text>
       </p>
@@ -31,10 +31,16 @@
           <ion-icon name="mail" item-start></ion-icon>
           Email
         </ion-label>
-        <ion-input color="secondary" type="email" formControlName="email"></ion-input>
+        <ion-input color="secondary" type="email" formControlName="email" ng-model="someModelIamUsing"
+        pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
       </ion-item>
+      <p ion-text class="danger" *ngIf="onRegisterForm.get('email').errors && onRegisterForm.get('email').dirty">
+          <ion-text color= "danger">
+              Email is not valid!
+          </ion-text>
+        </p>
       <p ion-text class="text08" *ngIf="onRegisterForm.get('email').touched && onRegisterForm.get('email').hasError('required')">
-        <ion-text color="warning">
+        <ion-text color="danger">
           This field is required
         </ion-text>
       </p>
@@ -46,8 +52,8 @@
         </ion-label>
         <ion-input color="secondary" type="password" formControlName="password"></ion-input>
       </ion-item>
-      <p ion-text color="warning" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
-        <ion-text color="warning">
+      <p ion-text color="danger" class="text08" *ngIf="onRegisterForm.get('password').touched && onRegisterForm.get('password').hasError('required')">
+        <ion-text color="danger">
           This field is required
         </ion-text>
       </p>
@@ -61,7 +67,7 @@
       </ion-button>
 
       <p text-center>
-        <ion-text color="light">
+        <ion-text color="dark">
           Or Sign Up with:
         </ion-text>
       </p>
@@ -70,7 +76,7 @@
     <!-- Other links -->
     <div text-center margin-top>
       <span (click)="goToLogin()" tappable>
-        <ion-text color="light">
+        <ion-text color="dark">
           <strong>I have an account!</strong>
         </ion-text>
       </span>
