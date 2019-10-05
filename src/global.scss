@@ -16,7 +16,7 @@ ion-item {
 
 // backgrounds //
 .bg-white {
-  background-color: #fff;
+  background-color: rgb(255, 255, 0);
 }
   
   .bg-light {
@@ -40,7 +40,7 @@ ion-item {
   }
   
   .bg-profile {
-    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-tertiary))
   }
   
   .bg-main {
@@ -126,7 +126,7 @@ ion-item {
   
   // style for auth pages
   .auth-page {
-    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-tertiary));
   
     .grid {
       padding: 0;
