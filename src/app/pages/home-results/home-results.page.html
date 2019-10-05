@@ -1,22 +1,24 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-menu-button color="dark"></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
+      <ion-button large  shape="round">
+        <img src="assets/icon/logo.png" style="width: 60px; height: 40px">
+      </ion-button>
     </ion-buttons>
-    <ion-title>
-        <ion-text color="light">
-          <ion-text color="dark" class="fw700">Gaurdian</ion-text>
+    <ion-title slot ="start">
+        <ion-text>
+          <ion-text color="light" class="fw1000">Gaurdian</ion-text>
         </ion-text>
-        <ion-icon src="assets/logo.svg"></ion-icon>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+      <ion-button size="small" shape="round" color="light" (click)="notifications()">
         <ion-icon name="notifications"></ion-icon>
-        <ion-badge color="dark" slot="end">2</ion-badge>
+        <ion-badge color="light" slot="end" >2</ion-badge>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar color="dark">
+  <ion-toolbar color="light">
     <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
@@ -27,22 +29,34 @@
 </ion-header>
 
 <ion-content>
-  <ion-card no-margin class="no-radius">
-    <ion-item lines="none" color="medium">
+  <ion-card>
+    <ion-card-content>
+    <ion-card-header class = "fw1000">Currently Tracking</ion-card-header>
+    <ion-list>
+    <ion-item >
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
-          <ion-text color="dark">Alert / Toast test</ion-text>
+          <ion-text color="dark">Grandma Nadine</ion-text>
         </h2>
-
-        <p class="text-11x no-margin">
-          <ion-text  color="primary">{{yourLocation}}</ion-text>
-        </p>
       </ion-label>
       <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
         Location
         <ion-icon name="locate"></ion-icon>
       </ion-button>
     </ion-item>
+    <ion-item >
+        <ion-label>
+          <h2 no-margin class="fw500 no-margin">
+            <ion-text color="dark">Grandma Nadine</ion-text>
+          </h2>
+        </ion-label>
+        <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
+          Location
+          <ion-icon name="locate"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
   </ion-card>
 
   <ion-card class="bg-white">
