@@ -10,8 +10,99 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-ion-item {
+
+/*ion-item {
     --ion-item-background: transparent;
+}*/
+  @mixin breakpoint($mq01: 0, $mq2: false, $maxmin: max-width) {
+    @if $mq2 == false {
+        @media ($maxmin: $mq01) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $mq01) and (max-width: $mq2) {
+            @content;
+        }
+    }
+  }
+  
+  // breakpoint variables
+  $lg: 1170px;
+  $md: 1024px;
+  $sm: 640px;
+  $xs: 480px;
+  
+  // responsive font size mixin
+  @mixin font-size-map($font-size-map) {
+      @each $breakpoint, $font-size in $font-size-map {
+          @if $breakpoint == null {
+              font-size: $font-size;
+          } @else {
+              @include breakpoint($breakpoint) {
+                  font-size: $font-size;
+              }
+          }
+      }
+  }
+  
+  // font sizes
+  
+  $html-font-size: (null: 16px, $md: 15px, $sm: 14px, $xs: 13px);
+  $paragraph-font-size: (null: 18px, $lg: 17px, $md: 16px, $sm: 15px, $xs: 14px);
+
+html {
+  @include font-size-map($html-font-size);
+}
+
+p {
+  @include font-size-map($paragraph-font-size);
+}
+
+$screen-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@each $keySize, $valueSize in $screen-breakpoints {
+    [hidden-#{$keySize}] {
+        @media (min-width: $valueSize) {
+            display: none;
+        }
+    }
+}
+
+
+@each $keySize, $valueSize in $screen-breakpoints {
+    [visible-block-#{$keySize}] {
+        @media (min-width: $valueSize) {
+            display: block;
+        }
+    }
+}
+
+@each $keySize, $valueSize in $screen-breakpoints {
+    [visible-inline-block-#{$keySize}] {
+        @media (min-width: $valueSize) {
+            display: inline-block;
+        }
+    }
+}
+
+.smlogo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
+  background: url("/assets/icon/logo.png") no-repeat;
+  background-size: 100%;
+}
+
+ion-card{
+  border-radius: 30px !important;
+  border-color: black !important;
 }
 
 // backgrounds //
@@ -57,8 +148,8 @@ ion-item {
       font-weight: 500 !important;
   }
   
-  .fw700 {
-      font-weight: 700 !important;
+  .fw1000 {
+      font-weight: 1000 !important;
   }
   
   .text08 {
@@ -81,7 +172,7 @@ ion-item {
     font-size: 2rem;
   }
   
-  .text-white {
+  /*.text-white {
       color: #fff;
   }
   
@@ -95,7 +186,7 @@ ion-item {
   
   .text-dark {
     color: var(--ion-color-dark);
-  }
+  }*/
   
   // menu //
   // Menu user profile
@@ -109,21 +200,8 @@ ion-item {
       border-width: 0;
     }
   }
-  
-  // Custom toolbar (overriding Shadow DOM)
-  ion-toolbar {
-    &.ion-color-primary {
-      --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
-    }
-  }
-  
-  // Android card shadow
-  ion-card {
-    &.sc-ion-card-md-h {
-      box-shadow: 0 2px 4px rgba(var(--ion-color-dark-rgb),.24);
-    }
-  }
-  
+ 
+ 
   // style for auth pages
   .auth-page {
     background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-tertiary));
@@ -191,15 +269,7 @@ ion-item {
   }
   
   // Custom Menu styles (overriding Shadow DOM)
-  ion-menu {
-    ion-header {
-      ion-toolbar {
-        &.ion-color-dark {
-          --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
-        }
-      }
-    }
-  }
+ 
   
   .mto {
     margin-top: 12px;

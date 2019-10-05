@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+      <ion-menu-button color="light" slot="start"></ion-menu-button>
     <ion-title>App Settings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,62 +11,61 @@
       <img src="assets/img/avatar.jpeg" class="user-avatar">
     </ion-avatar>
     <ion-label>
-      <ion-text color="light">
+      <ion-text style="color:maroon">
         <h2>
-          <strong>João Firmino</strong>
+          <strong>Sandra Jack</strong>
         </h2>
       </ion-text>
-      <ion-text color="tertiary">
+      <ion-text color="dark">
         <h3>
-          firminoata@gmail.com
+          sandrajack@gmail.com
         </h3>
       </ion-text>
-      <ion-button icon-left size="small" shape="round" color="dark" (click)="editProfile()">
+      <ion-button icon-left size="small" shape="round" color="warning" (click)="editProfile()">
         <ion-icon name="contact"></ion-icon>
-        Edit profile
+        <div hidden-xs visible-block-md>Edit profile</div>
       </ion-button>
       <ion-button icon-left size="small" shape="round" color="secondary" (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
-        logout
+        <div hidden-xs visible-block-md>logout</div>
       </ion-button>
     </ion-label>
   </ion-item>
-
   <ion-list no-border>
     <ion-list-header>
-      <ion-text color="dark">
-        <h5>General</h5>
+      <ion-text style="color:maroon">
+        <h5 style="font-weight: bold">General</h5>
       </ion-text>
     </ion-list-header>
     <ion-item>
-      <ion-icon name="settings" slot="start" color="primary"></ion-icon>
-      <ion-label color="primary">App Language</ion-label>
+      <ion-icon name="settings" slot="start" color="dark"></ion-icon>
+      <ion-label >App Language</ion-label>
       <ion-select [(ngModel)]="lang">
         <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-icon name="notifications" slot="start" color="primary"></ion-icon>
-      <ion-label class="label" color="primary"> Enable notifications </ion-label>
+      <ion-icon name="notifications" slot="start" color="danger"></ion-icon>
+      <ion-label class="label"> Enable notifications </ion-label>
       <ion-toggle [(ngModel)]="enableNotifications"></ion-toggle>
     </ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
-      <ion-text color="dark">
-        <h5>Currency</h5>
+      <ion-text>
+        <h5 style="color:maroon; font-weight:bold">Currency</h5>
       </ion-text>
     </ion-list-header>
     <ion-item>
       <ion-icon name="card" slot="start" color="primary"></ion-icon>
-      <ion-label color="primary">Payment Method</ion-label>
+      <ion-label >Payment Method</ion-label>
       <ion-select [(ngModel)]="paymentMethod">
         <ion-select-option *ngFor="let method of paymentMethods" [value]="method">{{method}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-icon name="logo-usd" slot="start" color="dark"></ion-icon>
-      <ion-label color="primary">Currency</ion-label>
+      <ion-icon name="logo-usd" slot="start" color="success"></ion-icon>
+      <ion-label >Currency</ion-label>
       <ion-select [(ngModel)]="currency">
         <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-select-option>
       </ion-select>

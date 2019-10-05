@@ -43,7 +43,7 @@ export class HomeResultsPage {
   }
 
   async alertLocation() {
-    const changeLocation = await this.alertCtrl.create({
+    /*const changeLocation = await this.alertCtrl.create({
       header: 'Change Location',
       message: 'Type your Address.',
       inputs: [
@@ -78,7 +78,7 @@ export class HomeResultsPage {
         }
       ]
     });
-    changeLocation.present();
+    changeLocation.present();*/
   }
 
   async searchFilter () {

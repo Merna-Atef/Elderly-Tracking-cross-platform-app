@@ -7,10 +7,9 @@
         border-radius: 0;
         border-bottom: 1px dotted var(--ion-color-medium);
     }
+}
 
-    ion-card {
-        &.no-radius {
-            border-radius: 0;
-        }
-    }
+.bg{
+    background-image: url(/src/assets/img/bg.jpg)  no-repeat 100% 100%;
+    
 }
