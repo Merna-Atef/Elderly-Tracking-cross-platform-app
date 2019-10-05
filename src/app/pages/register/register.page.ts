@@ -50,4 +50,5 @@ export class RegisterPage implements OnInit {
   goToLogin() {
     this.navCtrl.navigateRoot('/');
   }
+  
 }
